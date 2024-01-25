@@ -1,0 +1,89 @@
+Q9R8EWUBR3
+BWTWZVQX2P
+5J3DQSAZFW
+RACASKSKWK
+MXJQWDU32S
+P7MSDXAEBU
+8TVGB7CRNN
+D5UVFR9AGJ
+7GHR4ESSQH
+PSJJU7FCFP
+
+app_password: wake fhej dzvb aoxm
+swa: https://smart-parking-api-3g3e.onrender.com/
+
+
+
+
+const checker = (bookedTime) => {
+  const now = Date.now();
+  if (now >= bookedTime) {
+    console.log("the booked time is-----", bookedTime);
+    console.log("the now is -------------------", now);
+    console.log(
+      `and the desicion on-----(now >= bookedTime)-----${now >= bookedTime}`
+    );
+  }
+};
+
+const bookedTime = Date.parse("2024-01-08T15:31");
+cron.schedule("* * * * * *", function () {
+  // checker(bookedTime);
+  // console.log("___________________________________________");
+});
+
+// Function to calculate the distance between two sets of coordinates using Haversine formula
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Radius of the Earth in kilometers
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c; // Distance in kilometers
+
+  return distance;
+}
+
+// Helper function to convert degrees to radians
+function toRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}
+
+// Example usage
+const coordinates1 = { latitude: 37.7749, longitude: -122.4194 }; // San Francisco, CA
+const coordinates2 = { latitude: 34.0522, longitude: -118.2437 }; // Los Angeles, CA
+
+const distance = calculateDistance(
+  coordinates1.latitude,
+  coordinates1.longitude,
+  coordinates2.latitude,
+  coordinates2.longitude
+);
+
+console.log(`Distance between the two coordinates: ${distance.toFixed(2)} km`);
+
+/**
+ * @swagger
+ * /parking/buildings/getBuildingsNearByUser:
+ *   get:
+ *     summary: Return buildings near to the user
+ *     tags: [clientAccess]
+ *     responses:
+ *       200:
+ *          description: The success
+ *          content:
+ *             application/json:
+ *               schema:
+ *                   $ref: '#/components/schemas/updateBuildings'
+ *       404:
+ *          description: Not found
+ *       500:
+ *          description: Internal Server Error
+ */
