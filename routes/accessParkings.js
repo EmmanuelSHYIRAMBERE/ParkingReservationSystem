@@ -51,17 +51,10 @@ import { buildingStatistics, sytemStatistics } from "../controllers/Statistics";
 
 /**
  * @swagger
- * /parking/slots/checkSlotsByUser/{id}:
+ * /parking/slots/checkSlotsByUser:
  *   get:
- *     summary: Returns all slots in a building
+ *     summary: Returns all slots
  *     tags: [clientAccess]
- *     parameters:
- *        - in: path
- *          name: id
- *          schema:
- *             type: string
- *          required: true
- *          description: The building id
  *     responses:
  *       200:
  *          description: The available slots found successfully
@@ -79,7 +72,7 @@ import { buildingStatistics, sytemStatistics } from "../controllers/Statistics";
  *          description: Internal Server Error
  */
 
-parkingRouter.get("/checkSlotsByUser/:id", checkAvailableParkingsByUser);
+parkingRouter.get("/checkSlotsByUser", getAllSlots);
 
 /**
  * @swagger
