@@ -23,7 +23,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:2024",
+        url: "https://parkingreservationsystem.onrender.com",
       },
     ],
   },
