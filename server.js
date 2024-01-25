@@ -16,10 +16,10 @@ const options = {
   swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "Smart-Parking-Project API Documentation",
+      title: "Parking Reservation System  API Documentation",
       version: "1.0.0",
       description:
-        "This Smart-Parking-Project API Documentation is designed to provide basics of how this API functions.",
+        "This Parking Reservation System is implemented by Emmanuel SHYIRAMBERE 221012822.",
     },
     servers: [
       {
@@ -47,7 +47,7 @@ mongoose
     console.log(`connected to mongo DB`);
     app.listen(port, () =>
       console.log(
-        `Smart Parking project is running on port http://localhost:${port}`
+        `Parking Reservation System project is running on port http://localhost:${port}`
       )
     );
   })
