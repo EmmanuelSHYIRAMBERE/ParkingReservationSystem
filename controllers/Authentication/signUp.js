@@ -61,6 +61,7 @@ export const signUp = catchAsyncError(async (req, res, next) => {
       Email: newUser.email,
       phoneNo: newUser.phoneNo,
       location: newUser.location,
+      defaultPassword: defaultPassword ? defaultPassword : null,
       status: newUser.status,
       role: newUser.role,
     },
